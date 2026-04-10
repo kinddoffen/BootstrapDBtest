@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Film Database</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container py-4">
+
+<h1 class="mb-4">🎬 Film Database</h1>
+
+<!-- CREATE FORM -->
+<div class="card p-3 mb-4">
+    <input id="tittel" class="form-control mb-2" placeholder="Tittel">
+    <input id="spilletid" class="form-control mb-2" placeholder="Spilletid">
+    <input id="produksjonsar" class="form-control mb-2" placeholder="År">
+    <input id="regissor" class="form-control mb-2" placeholder="Regissør">
+    <input id="sjanger" class="form-control mb-2" placeholder="Sjanger ID">
+
+    <button class="btn btn-primary" onclick="addFilm()">Legg til film</button>
+</div>
+
+<!-- TABLE -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tittel</th>
+            <th>Sjanger</th>
+            <th>Handling</th>
+        </tr>
+    </thead>
+
+    <tbody id="filmTable"></tbody>
+</table>
+
+<script src="app.js"></script>
+</body>
+</html>
