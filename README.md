@@ -1,6 +1,6 @@
 # 🎬 Film Database
 
-Dette er en enkel webapplikasjon som lar deg legge til, vise og slette filmer fra en MySQL database.
+Dette er en enkel webapplikasjon som lar deg legge til, vise og slette filmer fra en MySQL database. Dette vil ikke funke på andre pc som ikke har den same databasen fordi den kjører på en lokal server.
 
 ## 📁 Teknologier
 - HTML
