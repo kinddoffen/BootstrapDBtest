@@ -14,17 +14,24 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 // =====================
-// READ
+// READ + SEARCH
 // =====================
 if ($method == "GET") {
 
-    $sql = "
-        SELECT Film.FilmId, Film.Tittel, Sjanger.Navn AS Sjanger
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+
+    $stmt = $conn->prepare("
+        SELECT Film.FilmId, Film.Tittel, Film.Produksjonsar, Film.Spilletid, Sjanger.Navn AS Sjanger
         FROM Film
         JOIN Sjanger ON Film.SjangerId = Sjanger.SjangerId
-    ";
+        WHERE Film.Tittel LIKE ? OR Sjanger.Navn LIKE ?
+    ");
 
-    $result = $conn->query($sql);
+    $like = "%" . $search . "%";
+    $stmt->bind_param("ss", $like, $like);
+
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     $data = [];
 
